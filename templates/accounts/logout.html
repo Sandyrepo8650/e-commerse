@@ -1,0 +1,29 @@
+{% extends 'accounts/base1.html' %}
+{% block content %}
+
+<section class="vh-100" style="background-color: #dcdfe2">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="mb-5">Logout</h3>
+                        <hr/>
+                        <form method="POST">
+                            {% csrf_token %}
+                            
+                            <div class="form-outline mb-4">
+                                Do you want to delete user email.
+                            </div>
+                            <hr class="my-4" />
+                            <button class="btn btn-danger btn-block" type="submit">Delete</button>
+                            <a href="" class="btn btn-secondary">Back to Home</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
