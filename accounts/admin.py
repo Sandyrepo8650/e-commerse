@@ -14,6 +14,7 @@ class UserCustomAdmin(BaseUserAdmin):
     list_filter = ['admin', 'superadmin']
 
     readonly_fields = ['joined_date', 'last_login']
+    change_password_form = AdminPasswordChangeForm
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Personal Info', {'fields': ('first_name', 'last_name', 'username',)}),
