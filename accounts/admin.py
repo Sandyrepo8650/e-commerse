@@ -1,20 +1,15 @@
 from django.contrib import admin
 from .models import User
-from django.contrib.auth.forms import AdminPasswordChangeForm
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin, AdminPasswordChangeForm
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group
-from .forms import UserRegistrationForm, UserUpdateForm
+
 
 
 class UserCustomAdmin(BaseUserAdmin):
-    form = UserUpdateForm
-    add_form = UserRegistrationForm
-
     list_display = ['email', 'first_name', 'last_name', 'username', 'is_active', 'joined_date', 'last_login']
     list_filter = ['admin', 'superadmin']
 
     readonly_fields = ['joined_date', 'last_login']
-    change_password_form = AdminPasswordChangeForm
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Personal Info', {'fields': ('first_name', 'last_name', 'username',)}),
@@ -34,3 +29,4 @@ class UserCustomAdmin(BaseUserAdmin):
 
 admin.site.register(User, UserCustomAdmin)
 admin.site.unregister(Group)
+

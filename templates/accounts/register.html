@@ -11,26 +11,25 @@
                         <form method="POST">
                             {% csrf_token %}
 
-                            <div class="form-outline mb-4">
+                            <!-- <div class="form-outline mb-4">
                                 <input type="email" id="typeEmailX-2" class="form-control form-control-lg"
-                                    placeholder="Email Address" name=email />
+                                    placeholder="Email Address" name='{{ form.email }}' />
                             </div>
 
                             <div class="form-outline mb-4">
                                 <input type="password" id="typePasswordX-2" class="form-control form-control-lg"
-                                    placeholder="Password" name='password' />
+                                    placeholder="Password" name='{{ form.password1 }}' />
                             </div>
                             <div class="form-outline mb-4">
                                 <input type="password" id="typePasswordX-2" class="form-control form-control-lg"
-                                    placeholder="Confirm Password" name='password' />
-                            </div>
-                            <hr class="my-4" />
-                            <button class="btn btn-primary" type="submit">
-                                Register
-                            </button>
+                                    placeholder="Confirm Password" name='{{ form.password2 }}' />
+                            </div> -->
+                            {{ form }}
+                            <br class="my-4" />
+                            <button class="btn btn-primary" type="submit">Register</button>
                         </form>
                         <hr>
-                        <p>Don't have an account <a href="">Login</a> here.</p>
+                        <p>Don't have an account <a href="{% url 'accounts:login' %}">Login</a> here.</p>
                     </div>
                 </div>
             </div>
