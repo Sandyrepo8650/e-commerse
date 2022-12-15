@@ -22,7 +22,7 @@ class UserRegisterPageView(View):
 class UserLoginPageView(View):
     def get(self, request, *args, **kwargs):
         form = LoginForm()
-        return render(request, 'accounts/login.html', {'form': form})
+        return render(request, 'accounts/signin.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
         form = LoginForm(request.POST)

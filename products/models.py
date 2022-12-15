@@ -10,6 +10,8 @@ class Category(models.Model):
     slug = models.SlugField(max_length=70, null=True, blank=True)
     discount = models.FloatField(default=0)
     image = models.ImageField(upload_to='image/cateogry', null=True, blank=True)
+    added_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = 'Category'
@@ -22,6 +24,8 @@ class Category(models.Model):
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True)
     address = models.CharField(max_length=220)
+    added_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.user.email
@@ -35,7 +39,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='image/products/', null=True, blank=True)
     price = models.IntegerField()
     digital = models.BooleanField(default=False)
-    joined_date = models.DateTimeField(auto_now_add=True)
+    added_date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -49,6 +53,7 @@ class Product(models.Model):
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     ordered_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
     trans_id = models.CharField(max_length=50)
     complited = models.BooleanField(default=False)
 
